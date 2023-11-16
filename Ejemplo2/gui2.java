@@ -14,8 +14,8 @@ public class gui2 {
     public static void main(String args[]) {
         ArrayList<JLabel> labels = new ArrayList<>();
         JButtonM.setLabels(labels);
-        ImageIcon opened = new ImageIcon("D:\\cmal1\\Semestre3\\poo\\slingelton\\Ejemplo2\\EAbierto.JPG");
-        ImageIcon closed = new ImageIcon("D:\\cmal1\\Semestre3\\poo\\slingelton\\Ejemplo2\\ECerrado.JPG");
+        ImageIcon opened = new ImageIcon("Ejemplo2\\EAbierto.JPG");
+        ImageIcon closed = new ImageIcon("Ejemplo2\\ECerrado.JPG");
         
         // Escalar las imágenes a un tamaño más pequeño
         int scaledWidth = 84;
