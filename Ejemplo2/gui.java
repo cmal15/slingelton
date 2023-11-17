@@ -52,6 +52,8 @@ public class gui {
         piso.setForeground(Color.YELLOW);
         piso.setFont(font);
 
+
+        //Evento para llamar al siguiente piso
         ActionListener bListener1 = new ActionListener() {
             @Override 
             public void actionPerformed(ActionEvent e){
@@ -60,6 +62,17 @@ public class gui {
                 ElevatorControlGui control = ElevatorControlGui.getInstance();
                 control.addToQueue(10-floor);
             
+            }
+        };
+
+        //Evento para cerrar el elevador
+        ActionListener bListener2 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                ElevatorControlGui control = ElevatorControlGui.getInstance();
+                close(labels, closed1);
+                int next = control.getNextFloor();
+                open(labels.get(next),opened1);
             }
         };
 
@@ -73,15 +86,6 @@ public class gui {
         }
 
         
-        ActionListener bListener2 = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                ElevatorControlGui control = ElevatorControlGui.getInstance();
-                close(labels, closed1);
-                int next = control.getNextFloor();
-                open(labels.get(next),opened1);
-            }
-        };
 
         Collections.reverse(buttons);
         for (JButton JButton : buttons) {
