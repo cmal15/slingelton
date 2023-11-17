@@ -14,8 +14,8 @@ public class gui {
     public static void main(String args[]) {
         ArrayList<JLabel> labels = new ArrayList<>();
 
-        ImageIcon opened = new ImageIcon("Ejemplo2\\EAbierto.JPG");
-        ImageIcon closed = new ImageIcon("Ejemplo2\\ECerrado.JPG");
+        ImageIcon opened = new ImageIcon("D:\\cmal1\\Semestre3\\poo\\slingelton\\Ejemplo2\\EAbierto.JPG");
+        ImageIcon closed = new ImageIcon("D:\\cmal1\\Semestre3\\poo\\slingelton\\Ejemplo2\\ECerrado.JPG");
         
         // Escalar las imágenes a un tamaño más pequeño
         int scaledWidth = 84;
@@ -34,7 +34,7 @@ public class gui {
         JFrame frame = new JFrame("Elevadores");
         Color color = new Color(128, 30, 30);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(140, 800);
+        frame.setSize(200, 800);
         frame.setResizable(true);
         frame.getContentPane().setBackground(color);
         frame.setLocationRelativeTo(null); 
