@@ -29,13 +29,7 @@ public class JButtonM extends JButton{
             int floor = Integer.parseInt(src.getText());
             ElevatorControlGui control = ElevatorControlGui.getInstance();
             control.addToQueue(10-floor);
-            
-            /* 
-            JButtonM src = (JButtonM) e.getSource();
-            int floor = Integer.parseInt(src.getText());
-            labels.get(10-floor).setIcon(opened1);
-            JButtonM.last.setIcon(closed1);
-            */
+        
         }
     };
 
