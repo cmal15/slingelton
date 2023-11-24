@@ -1,4 +1,4 @@
-package Ejemplo2;
+package Ejemplo2.ElevadoresGrafico;
 
 import java.util.LinkedList;
 import java.util.Queue;

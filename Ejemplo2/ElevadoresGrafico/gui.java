@@ -1,4 +1,4 @@
-package Ejemplo2;
+package Ejemplo2.ElevadoresGrafico;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class gui2 {
+public class gui {
 
     
     public static void main(String args[]) {
         ArrayList<JLabel> labels = new ArrayList<>();
-        JButtonM.setLabels(labels);
-        ImageIcon opened = new ImageIcon("Ejemplo2\\EAbierto.JPG");
-        ImageIcon closed = new ImageIcon("Ejemplo2\\ECerrado.JPG");
+
+        ImageIcon opened = new ImageIcon("D:\\cmal1\\Semestre3\\poo\\slingelton\\Ejemplo2\\EAbierto.JPG");
+        ImageIcon closed = new ImageIcon("D:\\cmal1\\Semestre3\\poo\\slingelton\\Ejemplo2\\ECerrado.JPG");
         
         // Escalar las imágenes a un tamaño más pequeño
         int scaledWidth = 84;
@@ -26,8 +26,7 @@ public class gui2 {
 
         opened = new ImageIcon(openedImage);
         closed = new ImageIcon(closedImage);
-        JButtonM.opened1 = opened;
-        JButtonM.closed1 = closed;
+
         final ImageIcon closed1 = closed;
         final ImageIcon opened1 = opened;
 
@@ -35,14 +34,14 @@ public class gui2 {
         JFrame frame = new JFrame("Elevadores");
         Color color = new Color(128, 30, 30);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(140, 800);
+        frame.setSize(200, 800);
         frame.setResizable(true);
         frame.getContentPane().setBackground(color);
         frame.setLocationRelativeTo(null); 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(11, 1, 20, 20));
 
-        LinkedList<JButtonM> buttons = new LinkedList<>();
+        LinkedList<JButton> buttons = new LinkedList<>();
 
         JPanel panel2 = new JPanel();
 
@@ -53,14 +52,20 @@ public class gui2 {
         piso.setForeground(Color.YELLOW);
         piso.setFont(font);
 
-        panel.setBackground(color);
-        panel2.setBackground(color);
-        frame.add(panel2);
-        for (int i = 0; i < 10; i++) {
-            JButtonM but = new JButtonM(Integer.toString(i + 1));
-            buttons.add(but);
-        }
 
+        //Evento para llamar al siguiente piso
+        ActionListner bListeener1 = new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e){
+                JButton src = (JButton) e.getSource();
+                int floor = Integer.parseInt(src.getText());
+                ElevatorControlGui control = ElevatorControlGui.getInstance();
+                control.addToQueue(10-floor);
+            
+            }
+        };
+
+        //Evento para cerrar el elevador
         ActionListener bListener2 = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
@@ -71,11 +76,22 @@ public class gui2 {
             }
         };
 
-        Collections.reverse(buttons);
-        for (JButtonM jButtonM : buttons) {
-            panel.add(jButtonM); // Agrega el botón al panel de contenido del marco
+        panel.setBackground(color);
+        panel2.setBackground(color);
+        frame.add(panel2);
+        for (int i = 0; i < 10; i++) {
+            JButton but = new JButton(Integer.toString(i + 1));
+            but.addActionListener(bListener1);
+            buttons.add(but);
         }
-        JButtonM butC = new JButtonM("><");
+
+        
+
+        Collections.reverse(buttons);
+        for (JButton JButton : buttons) {
+            panel.add(JButton); // Agrega el botón al panel de contenido del marco
+        }
+        JButton butC = new JButton("><");
         butC.addActionListener(bListener2);
         panel.add(butC);
         Collections.reverse(buttons);
