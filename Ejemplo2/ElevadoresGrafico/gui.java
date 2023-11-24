@@ -54,7 +54,7 @@ public class gui {
 
 
         //Evento para llamar al siguiente piso
-        ActionListner bListeener1 = new ActionListener() {
+        ActionListener bListeener1 = new ActionListener() {
             @Override 
             public void actionPerformed(ActionEvent e){
                 JButton src = (JButton) e.getSource();
@@ -81,7 +81,7 @@ public class gui {
         frame.add(panel2);
         for (int i = 0; i < 10; i++) {
             JButton but = new JButton(Integer.toString(i + 1));
-            but.addActionListener(bListener1);
+            but.addActionListener(bListeener1);
             buttons.add(but);
         }
 
